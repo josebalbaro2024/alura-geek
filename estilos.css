@@ -1,0 +1,191 @@
+
+
+/* Reset y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1000px;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header y Footer */
+.header, .footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+.footer p {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Main y disposición de aside y gallery */
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Aside */
+.sidebar {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Títulos y campos del aside */
+.sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.sidebar label {
+    font-weight: 500;
+    margin-top: 10px;
+    display: block;
+}
+
+.sidebar input, .sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sidebar button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+}
+
+/* Cards */
+.gallery {
+    display: grid;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Card individual */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.card-container--info {
+    padding: 10px;
+}
+
+.card-container--info p {
+    margin: 5px 0;
+}
+
+.card-container--value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-container--value p {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.card-container--value a img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Responsividad */
+
+
+@media (max-width: 767px) {
+    .main {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; 
+        width: 100%; 
+    }
+
+    .sidebar {
+        width: 90%; 
+        max-width: 280px; 
+        margin: 0 auto; 
+    }
+    .card-container--value a img {
+        width: 40px; 
+    }
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .sidebar {
+        max-width: 300px; 
+        width: 100%;
+        order: 2; 
+        margin: 0 auto;
+    }
+    .card-container--value a img {
+        width: 40px; 
+    }
+}
+
+
+@media (min-width: 905px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .sidebar {
+        order: 1; 
+        max-width: 280px;
+    }
+}
